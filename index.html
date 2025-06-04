@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>南开大学数学建模协会 - NKUMMF</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="icon" href="icon/favicon.ico" type="image/x-icon">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+    <!-- 导航栏 -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <img src="icon/nkummf.jpg" alt="NKUMMF Logo" class="logo-img">
+                <span class="logo-text" data-zh="南开大学数学建模协会" data-en="NKUMMF">南开大学数学建模协会</span>
+            </div>
+            <ul class="nav-menu">
+                <li class="nav-item">
+                    <a href="index.html" class="nav-link active" data-zh="首页" data-en="Home">首页</a>
+                </li>
+                <li class="nav-item dropdown">
+                    <a href="javascript:void(0)" class="nav-link dropdown-toggle" data-zh="协会概况" data-en="About">协会概况</a>
+                    <ul class="dropdown-menu">
+                        <li><a href="about.html" class="dropdown-item" data-zh="协会概况" data-en="About Association">协会概况</a></li>
+                        <li><a href="organization.html" class="dropdown-item" data-zh="组织架构" data-en="Organization">组织架构</a></li>
+                        <li><a href="youth-league.html" class="dropdown-item" data-zh="团支部" data-en="Youth League Branch">团支部</a></li>
+                        <li><a href="former-leaders.html" class="dropdown-item" data-zh="历任负责人" data-en="Former Leaders">历任负责人</a></li>
+                    </ul>
+                </li>
+                <li class="nav-item">
+                    <a href="news.html" class="nav-link" data-zh="协会新闻" data-en="News">协会新闻</a>
+                </li>
+                <li class="nav-item">
+                    <a href="development.html" class="nav-link" data-zh="协会建设" data-en="Development">协会建设</a>
+                </li>
+                <li class="nav-item">
+                    <a href="contact.html" class="nav-link" data-zh="联系我们" data-en="Contact">联系我们</a>
+                </li>
+            </ul>
+            <div class="nav-controls">
+                <button class="theme-toggle" id="themeToggle">
+                    <i class="fas fa-moon"></i>
+                </button>
+                <button class="lang-toggle" id="langToggle">
+                    <span class="lang-text">EN</span>
+                </button>
+                <div class="hamburger" id="hamburger">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- 主要内容 -->
+    <main>
+        <!-- 轮播图部分 -->
+        <section class="hero-slider">
+            <div class="slider-container">
+                <div class="slide active">
+                    <img src="images/slide1.jpg" alt="数学建模竞赛">
+                    <div class="slide-content">
+                        <h1 data-zh="南开大学数学建模协会" data-en="Nankai University Mathematical Modeling Federation">南开大学数学建模协会</h1>
+                        <p data-zh="培养创新思维，提升数学建模能力" data-en="Cultivate innovative thinking, enhance mathematical modeling capabilities">培养创新思维，提升数学建模能力</p>
+                        <button class="cta-button" data-zh="了解更多" data-en="Learn More">了解更多</button>
+                    </div>
+                </div>
+                <div class="slide">
+                    <img src="images/slide2.jpg" alt="学术交流">
+                    <div class="slide-content">
+                        <h1 data-zh="学术交流与合作" data-en="Academic Exchange and Cooperation">学术交流与合作</h1>
+                        <p data-zh="促进数学建模领域的学术交流与发展" data-en="Promote academic exchange and development in mathematical modeling">促进数学建模领域的学术交流与发展</p>
+                        <button class="cta-button" data-zh="加入我们" data-en="Join Us">加入我们</button>
+                    </div>
+                </div>
+                <div class="slide">
+                    <img src="images/slide3.jpg" alt="团队协作">
+                    <div class="slide-content">
+                        <h1 data-zh="团队协作精神" data-en="Team Collaboration Spirit">团队协作精神</h1>
+                        <p data-zh="在协作中成长，在竞赛中收获" data-en="Grow through collaboration, gain through competition">在协作中成长，在竞赛中收获</p>
+                        <button class="cta-button" data-zh="查看活动" data-en="View Activities">查看活动</button>
+                    </div>
+                </div>
+            </div>
+            <button class="slider-btn prev-btn" id="prevBtn">
+                <i class="fas fa-chevron-left"></i>
+            </button>
+            <button class="slider-btn next-btn" id="nextBtn">
+                <i class="fas fa-chevron-right"></i>
+            </button>
+            <div class="slider-dots">
+                <span class="dot active" data-slide="0"></span>
+                <span class="dot" data-slide="1"></span>
+                <span class="dot" data-slide="2"></span>
+            </div>
+        </section>
+
+        <!-- 协会特色部分 -->
+        <section class="features">
+            <div class="container">
+                <h2 class="section-title" data-zh="协会特色" data-en="Our Features">协会特色</h2>
+                <div class="features-grid">
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-trophy"></i>
+                        </div>
+                        <h3 data-zh="竞赛指导" data-en="Competition Guidance">竞赛指导</h3>
+                        <p data-zh="专业的数学建模竞赛培训和指导" data-en="Professional mathematical modeling competition training and guidance">专业的数学建模竞赛培训和指导</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-users"></i>
+                        </div>
+                        <h3 data-zh="团队建设" data-en="Team Building">团队建设</h3>
+                        <p data-zh="组建优秀的数学建模团队" data-en="Build excellent mathematical modeling teams">组建优秀的数学建模团队</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-book"></i>
+                        </div>
+                        <h3 data-zh="学术研究" data-en="Academic Research">学术研究</h3>
+                        <p data-zh="深入的数学建模理论与实践研究" data-en="In-depth mathematical modeling theory and practice research">深入的数学建模理论与实践研究</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-handshake"></i>
+                        </div>
+                        <h3 data-zh="交流合作" data-en="Exchange Cooperation">交流合作</h3>
+                        <p data-zh="与其他高校的交流与合作" data-en="Exchange and cooperation with other universities">与其他高校的交流与合作</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 最新动态部分 -->
+        <section class="news">
+            <div class="container">
+                <h2 class="section-title" data-zh="最新动态" data-en="Latest News">最新动态</h2>
+                <div class="news-carousel">
+                    <div class="carousel-items" id="newsCarousel">
+                        <!-- 新闻项将通过JavaScript动态加载 -->
+                    </div>
+                    <button class="carousel-nav carousel-prev" id="newsPrev">
+                        <i class="fas fa-chevron-left"></i>
+                    </button>
+                    <button class="carousel-nav carousel-next" id="newsNext">
+                        <i class="fas fa-chevron-right"></i>
+                    </button>
+                    <div class="carousel-controls" id="newsControls">
+                        <!-- 导航点将通过JavaScript动态加载 -->
+                    </div>
+                </div>
+                <div class="text-center">
+                    <a href="news.html" class="cta-button" data-zh="查看全部新闻" data-en="View All News">查看全部新闻</a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- 页脚 -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3 data-zh="南开大学数学建模协会" data-en="NKUMMF">南开大学数学建模协会</h3>
+                    <p data-zh="致力于推广数学建模，培养创新人才" data-en="Dedicated to promoting mathematical modeling and cultivating innovative talents">致力于推广数学建模，培养创新人才</p>
+                </div>
+                <div class="footer-section">
+                    <h4 data-zh="快速链接" data-en="Quick Links">快速链接</h4>
+                    <ul>
+                        <li><a href="about.html" data-zh="协会概况" data-en="About">协会概况</a></li>
+                        <li><a href="news.html" data-zh="协会新闻" data-en="News">协会新闻</a></li>
+                        <li><a href="development.html" data-zh="协会建设" data-en="Development">协会建设</a></li>
+                        <li><a href="contact.html" data-zh="联系我们" data-en="Contact">联系我们</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4 data-zh="联系方式" data-en="Contact Info">联系方式</h4>
+                    <p><i class="fas fa-envelope"></i> nkummf@nankai.edu.cn</p>
+                    <p><i class="fas fa-phone"></i> +86-22-2350-xxxx</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 南开大学数学建模协会. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html> 

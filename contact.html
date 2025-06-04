@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>联系我们 - 南开大学数学建模协会</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="icon" href="icon/favicon.ico" type="image/x-icon">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+    <!-- 导航栏 -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <img src="icon/nkummf.jpg" alt="NKUMMF Logo" class="logo-img">
+                <span class="logo-text" data-zh="南开大学数学建模协会" data-en="NKUMMF">南开大学数学建模协会</span>
+            </div>
+            <ul class="nav-menu">
+                <li class="nav-item">
+                    <a href="index.html" class="nav-link" data-zh="首页" data-en="Home">首页</a>
+                </li>
+                <li class="nav-item dropdown">
+                    <a href="javascript:void(0)" class="nav-link dropdown-toggle" data-zh="协会概况" data-en="About">协会概况</a>
+                    <ul class="dropdown-menu">
+                        <li><a href="about.html" class="dropdown-item" data-zh="协会概况" data-en="About Association">协会概况</a></li>
+                        <li><a href="organization.html" class="dropdown-item" data-zh="组织架构" data-en="Organization">组织架构</a></li>
+                        <li><a href="youth-league.html" class="dropdown-item" data-zh="团支部" data-en="Youth League Branch">团支部</a></li>
+                        <li><a href="former-leaders.html" class="dropdown-item" data-zh="历任负责人" data-en="Former Leaders">历任负责人</a></li>
+                    </ul>
+                </li>
+                <li class="nav-item">
+                    <a href="development.html" class="nav-link" data-zh="协会建设" data-en="Development">协会建设</a>
+                </li>
+                <li class="nav-item">
+                    <a href="contact.html" class="nav-link active" data-zh="联系我们" data-en="Contact">联系我们</a>
+                </li>
+            </ul>
+            <div class="nav-controls">
+                <button class="theme-toggle" id="themeToggle">
+                    <i class="fas fa-moon"></i>
+                </button>
+                <button class="lang-toggle" id="langToggle">
+                    <span class="lang-text">EN</span>
+                </button>
+                <div class="hamburger" id="hamburger">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- 页面标题 -->
+    <section class="page-header">
+        <div class="container">
+            <h1 data-zh="联系我们" data-en="Contact Us">联系我们</h1>
+            <p data-zh="与我们取得联系，加入数学建模的大家庭" data-en="Get in touch with us and join the mathematical modeling family">与我们取得联系，加入数学建模的大家庭</p>
+        </div>
+    </section>
+
+    <!-- 主要内容 -->
+    <main class="main-content">
+        <div class="container">
+            <!-- 联系信息 -->
+            <section class="contact-info">
+                <div class="contact-grid">
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-map-marker-alt"></i>
+                        </div>
+                        <div class="contact-details">
+                            <h3 data-zh="地址" data-en="Address">地址</h3>
+                            <p data-zh="天津市南开区卫津路94号" data-en="94 Weijin Road, Nankai District, Tianjin">天津市南开区卫津路94号</p>
+                            <p data-zh="南开大学津南校区综合业务西楼" data-en="Comprehensive Business West Building, Jinnan Campus, Nankai University">南开大学津南校区综合业务西楼</p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-phone"></i>
+                        </div>
+                        <div class="contact-details">
+                            <h3 data-zh="电话" data-en="Phone">电话</h3>
+                            <p>+86-22-2350-1234</p>
+                            <p data-zh="工作时间：周一至周五 9:00-17:00" data-en="Working hours: Monday to Friday 9:00-17:00">工作时间：周一至周五 9:00-17:00</p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-envelope"></i>
+                        </div>
+                        <div class="contact-details">
+                            <h3 data-zh="邮箱" data-en="Email">邮箱</h3>
+                            <p>nkummf@nankai.edu.cn</p>
+                            <p data-zh="我们会在24小时内回复您的邮件" data-en="We will reply to your email within 24 hours">我们会在24小时内回复您的邮件</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 联系表单 -->
+            <section class="contact-form-section">
+                <div class="form-container">
+                    <div class="form-header">
+                        <h2 data-zh="发送消息" data-en="Send Message">发送消息</h2>
+                        <p data-zh="有任何问题或建议，请填写下面的表单" data-en="If you have any questions or suggestions, please fill out the form below">有任何问题或建议，请填写下面的表单</p>
+                    </div>
+                    <form class="contact-form" id="contactForm">
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="name" data-zh="姓名 *" data-en="Name *">姓名 *</label>
+                                <input type="text" id="name" name="name" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="email" data-zh="邮箱 *" data-en="Email *">邮箱 *</label>
+                                <input type="email" id="email" name="email" required>
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="phone" data-zh="电话" data-en="Phone">电话</label>
+                                <input type="tel" id="phone" name="phone">
+                            </div>
+                            <div class="form-group">
+                                <label for="subject" data-zh="主题 *" data-en="Subject *">主题 *</label>
+                                <select id="subject" name="subject" required>
+                                    <option value="" data-zh="请选择主题" data-en="Please select a subject">请选择主题</option>
+                                    <option value="join" data-zh="加入协会" data-en="Join Association">加入协会</option>
+                                    <option value="cooperation" data-zh="合作咨询" data-en="Cooperation Inquiry">合作咨询</option>
+                                    <option value="feedback" data-zh="意见反馈" data-en="Feedback">意见反馈</option>
+                                    <option value="other" data-zh="其他" data-en="Other">其他</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="message" data-zh="消息内容 *" data-en="Message *">消息内容 *</label>
+                            <textarea id="message" name="message" rows="6" required></textarea>
+                        </div>
+                        <button type="submit" class="submit-btn" data-zh="发送消息" data-en="Send Message">发送消息</button>
+                    </form>
+                </div>
+            </section>
+
+            <!-- 加入我们 -->
+            <section class="join-us">
+                <div class="join-content">
+                    <h2 data-zh="加入我们" data-en="Join Us">加入我们</h2>
+                    <p data-zh="欢迎对数学建模感兴趣的同学加入我们的大家庭！" data-en="Welcome students interested in mathematical modeling to join our family!">欢迎对数学建模感兴趣的同学加入我们的大家庭！</p>
+                    
+                    <div class="join-steps">
+                        <div class="step">
+                            <div class="step-number">1</div>
+                            <div class="step-content">
+                                <h3 data-zh="报名申请" data-en="Application">报名申请</h3>
+                                <p data-zh="填写入会申请表，提交个人信息" data-en="Fill out the membership application form and submit personal information">填写入会申请表，提交个人信息</p>
+                            </div>
+                        </div>
+                        <div class="step">
+                            <div class="step-number">2</div>
+                            <div class="step-content">
+                                <h3 data-zh="面试考核" data-en="Interview">面试考核</h3>
+                                <p data-zh="参加协会组织的面试，了解数学建模基础" data-en="Participate in interviews organized by the association to understand mathematical modeling basics">参加协会组织的面试，了解数学建模基础</p>
+                            </div>
+                        </div>
+                        <div class="step">
+                            <div class="step-number">3</div>
+                            <div class="step-content">
+                                <h3 data-zh="正式入会" data-en="Official Membership">正式入会</h3>
+                                <p data-zh="通过考核后成为正式会员，开始学习之旅" data-en="Become an official member after passing the assessment and start your learning journey">通过考核后成为正式会员，开始学习之旅</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="join-requirements">
+                        <h3 data-zh="加入条件" data-en="Requirements">加入条件</h3>
+                        <ul>
+                            <li data-zh="南开大学在读本科生或研究生" data-en="Undergraduate or graduate students at Nankai University">南开大学在读本科生或研究生</li>
+                            <li data-zh="对数学建模有浓厚兴趣" data-en="Have a strong interest in mathematical modeling">对数学建模有浓厚兴趣</li>
+                            <li data-zh="具备一定的数学基础" data-en="Have a certain mathematical foundation">具备一定的数学基础</li>
+                            <li data-zh="有团队合作精神" data-en="Have team spirit">有团队合作精神</li>
+                            <li data-zh="能够积极参与协会活动" data-en="Able to actively participate in association activities">能够积极参与协会活动</li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 社交媒体 -->
+            <section class="social-media">
+                <h2 class="section-title" data-zh="关注我们" data-en="Follow Us">关注我们</h2>
+                <div class="social-links">
+                    <a href="#" class="social-link">
+                        <i class="fab fa-weixin"></i>
+                        <span data-zh="微信公众号" data-en="WeChat">微信公众号</span>
+                    </a>
+                    <a href="#" class="social-link">
+                        <i class="fab fa-qq"></i>
+                        <span data-zh="QQ群" data-en="QQ Group">QQ群</span>
+                    </a>
+                    <a href="#" class="social-link">
+                        <i class="fab fa-weibo"></i>
+                        <span data-zh="新浪微博" data-en="Weibo">新浪微博</span>
+                    </a>
+                    <a href="#" class="social-link">
+                        <i class="fab fa-bilibili"></i>
+                        <span data-zh="哔哩哔哩" data-en="Bilibili">哔哩哔哩</span>
+                    </a>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <!-- 页脚 -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3 data-zh="南开大学数学建模协会" data-en="NKUMMF">南开大学数学建模协会</h3>
+                    <p data-zh="致力于推广数学建模，培养创新人才" data-en="Dedicated to promoting mathematical modeling and cultivating innovative talents">致力于推广数学建模，培养创新人才</p>
+                </div>
+                <div class="footer-section">
+                    <h4 data-zh="快速链接" data-en="Quick Links">快速链接</h4>
+                    <ul>
+                        <li><a href="about.html" data-zh="协会概况" data-en="About">协会概况</a></li>
+                        <li><a href="development.html" data-zh="协会建设" data-en="Development">协会建设</a></li>
+                        <li><a href="contact.html" data-zh="联系我们" data-en="Contact">联系我们</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4 data-zh="联系方式" data-en="Contact Info">联系方式</h4>
+                    <p><i class="fas fa-envelope"></i> nkummf@nankai.edu.cn</p>
+                    <p><i class="fas fa-phone"></i> +86-22-2350-xxxx</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 南开大学数学建模协会. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html> 

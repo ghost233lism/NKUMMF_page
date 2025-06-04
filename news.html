@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>协会新闻 - 南开大学数学建模协会</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="icon" href="icon/favicon.ico" type="image/x-icon">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+    <!-- 导航栏 -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <img src="icon/nkummf.jpg" alt="NKUMMF Logo" class="logo-img">
+                <span class="logo-text" data-zh="南开大学数学建模协会" data-en="NKUMMF">南开大学数学建模协会</span>
+            </div>
+            <ul class="nav-menu">
+                <li class="nav-item">
+                    <a href="index.html" class="nav-link" data-zh="首页" data-en="Home">首页</a>
+                </li>
+                <li class="nav-item dropdown">
+                    <a href="javascript:void(0)" class="nav-link dropdown-toggle" data-zh="协会概况" data-en="About">协会概况</a>
+                    <ul class="dropdown-menu">
+                        <li><a href="about.html" class="dropdown-item" data-zh="协会概况" data-en="About Association">协会概况</a></li>
+                        <li><a href="organization.html" class="dropdown-item" data-zh="组织架构" data-en="Organization">组织架构</a></li>
+                        <li><a href="youth-league.html" class="dropdown-item" data-zh="团支部" data-en="Youth League Branch">团支部</a></li>
+                        <li><a href="former-leaders.html" class="dropdown-item" data-zh="历任负责人" data-en="Former Leaders">历任负责人</a></li>
+                    </ul>
+                </li>
+                <li class="nav-item">
+                    <a href="news.html" class="nav-link active" data-zh="协会新闻" data-en="News">协会新闻</a>
+                </li>
+                <li class="nav-item">
+                    <a href="development.html" class="nav-link" data-zh="协会建设" data-en="Development">协会建设</a>
+                </li>
+                <li class="nav-item">
+                    <a href="contact.html" class="nav-link" data-zh="联系我们" data-en="Contact">联系我们</a>
+                </li>
+            </ul>
+            <div class="nav-controls">
+                <button class="theme-toggle" id="themeToggle">
+                    <i class="fas fa-moon"></i>
+                </button>
+                <button class="lang-toggle" id="langToggle">
+                    <span class="lang-text">EN</span>
+                </button>
+                <div class="hamburger" id="hamburger">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- 页面标题 -->
+    <section class="page-header">
+        <div class="container">
+            <h1 data-zh="协会新闻" data-en="Association News">协会新闻</h1>
+            <p data-zh="了解南开大学数学建模协会的最新动态" data-en="Stay updated with the latest news from NKUMMF">了解南开大学数学建模协会的最新动态</p>
+        </div>
+    </section>
+
+    <!-- 主要内容 -->
+    <main class="main-content">
+        <div class="container">
+            <!-- 新闻列表 -->
+            <section class="news-list">
+                <div class="news-item" data-news-id="1">
+                    <div class="news-item-header">
+                        <h2 data-zh="2024年数学建模竞赛准备工作启动" data-en="2024 Mathematical Modeling Competition Preparation Launched">2024年数学建模竞赛准备工作启动</h2>
+                        <span class="news-date">2024-06-10</span>
+                    </div>
+                    <div class="news-item-content">
+                        <div class="news-item-image">
+                            <img src="images/news1.jpg" alt="数学建模竞赛准备工作">
+                        </div>
+                        <div class="news-item-text">
+                            <p data-zh="协会正式启动2024年数学建模竞赛的各项准备工作。本次竞赛预计将有200余名学生参与，协会将组织系列培训活动，包括基础知识讲座、编程技能培训和历年题目解析等。此外，还将邀请往届获奖选手分享参赛经验，为参赛选手提供全方位的竞赛指导。" 
+                               data-en="The association has officially launched various preparations for the 2024 mathematical modeling competition. It is expected that more than 200 students will participate in this competition. The association will organize a series of training activities, including basic knowledge lectures, programming skills training, and analysis of previous years' questions. In addition, winners from previous competitions will be invited to share their experiences, providing comprehensive guidance for contestants.">
+                               协会正式启动2024年数学建模竞赛的各项准备工作。本次竞赛预计将有200余名学生参与，协会将组织系列培训活动，包括基础知识讲座、编程技能培训和历年题目解析等。此外，还将邀请往届获奖选手分享参赛经验，为参赛选手提供全方位的竞赛指导。
+                            </p>
+                            <a href="news-detail.html?id=1" class="read-more" data-zh="阅读更多" data-en="Read More">阅读更多</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="news-item" data-news-id="2">
+                    <div class="news-item-header">
+                        <h2 data-zh="协会举办数学建模讲座" data-en="Association Hosts Mathematical Modeling Lecture">协会举办数学建模讲座</h2>
+                        <span class="news-date">2024-06-05</span>
+                    </div>
+                    <div class="news-item-content">
+                        <div class="news-item-image">
+                            <img src="images/news2.jpg" alt="数学建模讲座">
+                        </div>
+                        <div class="news-item-text">
+                            <p data-zh="6月5日，协会邀请数学科学学院李教授为会员进行数学建模技能培训。讲座主题为"优化算法在数学建模中的应用"，全面介绍了线性规划、非线性规划和整数规划等优化方法的原理和应用。近百名学生参加了本次讲座，现场讨论热烈，学生们表示收获颇丰。" 
+                               data-en="On June 5, the association invited Professor Li from the School of Mathematical Sciences to provide mathematical modeling skills training for members. The lecture topic was 'Application of Optimization Algorithms in Mathematical Modeling', which comprehensively introduced the principles and applications of optimization methods such as linear programming, nonlinear programming, and integer programming. Nearly a hundred students attended the lecture, and the discussion was lively. Students expressed that they gained a lot from it.">
+                               6月5日，协会邀请数学科学学院李教授为会员进行数学建模技能培训。讲座主题为"优化算法在数学建模中的应用"，全面介绍了线性规划、非线性规划和整数规划等优化方法的原理和应用。近百名学生参加了本次讲座，现场讨论热烈，学生们表示收获颇丰。
+                            </p>
+                            <a href="news-detail.html?id=2" class="read-more" data-zh="阅读更多" data-en="Read More">阅读更多</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="news-item" data-news-id="3">
+                    <div class="news-item-header">
+                        <h2 data-zh="协会新一届理事会成立" data-en="New Board of Directors Established">协会新一届理事会成立</h2>
+                        <span class="news-date">2024-06-01</span>
+                    </div>
+                    <div class="news-item-content">
+                        <div class="news-item-image">
+                            <img src="images/news3.jpg" alt="新一届理事会">
+                        </div>
+                        <div class="news-item-text">
+                            <p data-zh="经过民主选举，协会新一届理事会正式成立。新一届理事会由来自不同学院的15名学生组成，将致力于推动协会的多元化发展，加强与校内外其他组织的合作，为会员提供更多学习和交流的机会。新任会长表示，将继续秉承协会的优良传统，积极开展各类活动，提高南开学子的数学建模能力。" 
+                               data-en="After democratic elections, the new board of directors of the association was officially established. The new board consists of 15 students from different colleges and will be committed to promoting the diversified development of the association, strengthening cooperation with other organizations inside and outside the university, and providing more opportunities for learning and communication for members. The new president said that they would continue to uphold the fine traditions of the association, actively carry out various activities, and improve the mathematical modeling abilities of Nankai students.">
+                               经过民主选举，协会新一届理事会正式成立。新一届理事会由来自不同学院的15名学生组成，将致力于推动协会的多元化发展，加强与校内外其他组织的合作，为会员提供更多学习和交流的机会。新任会长表示，将继续秉承协会的优良传统，积极开展各类活动，提高南开学子的数学建模能力。
+                            </p>
+                            <a href="news-detail.html?id=3" class="read-more" data-zh="阅读更多" data-en="Read More">阅读更多</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="news-item" data-news-id="4">
+                    <div class="news-item-header">
+                        <h2 data-zh="美国大学生数学建模竞赛结果公布" data-en="MCM/ICM Results Announced">美国大学生数学建模竞赛结果公布</h2>
+                        <span class="news-date">2024-05-20</span>
+                    </div>
+                    <div class="news-item-content">
+                        <div class="news-item-image">
+                            <img src="images/news4.jpg" alt="数学建模竞赛">
+                        </div>
+                        <div class="news-item-text">
+                            <p data-zh="2024年美国大学生数学建模竞赛(MCM/ICM)成绩日前公布，我校共有3支队伍获得Outstanding Winner（特等奖）、5支队伍获得Finalist（一等奖）、10支队伍获得Meritorious Winner（二等奖）。这是我校近年来在该项赛事中取得的最好成绩，体现了我校数学建模教育和培训的高水平。" 
+                               data-en="The results of the 2024 Mathematical Contest in Modeling/Interdisciplinary Contest in Modeling (MCM/ICM) have been announced. Our university has 3 teams winning Outstanding Winner, 5 teams winning Finalist, and 10 teams winning Meritorious Winner. This is the best result our university has achieved in this competition in recent years, reflecting the high level of mathematical modeling education and training in our university.">
+                               2024年美国大学生数学建模竞赛(MCM/ICM)成绩日前公布，我校共有3支队伍获得Outstanding Winner（特等奖）、5支队伍获得Finalist（一等奖）、10支队伍获得Meritorious Winner（二等奖）。这是我校近年来在该项赛事中取得的最好成绩，体现了我校数学建模教育和培训的高水平。
+                            </p>
+                            <a href="news-detail.html?id=4" class="read-more" data-zh="阅读更多" data-en="Read More">阅读更多</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="news-item" data-news-id="5">
+                    <div class="news-item-header">
+                        <h2 data-zh="协会与天津大学数模协会交流活动" data-en="Exchange Activity with Tianjin University">协会与天津大学数模协会交流活动</h2>
+                        <span class="news-date">2024-05-15</span>
+                    </div>
+                    <div class="news-item-content">
+                        <div class="news-item-image">
+                            <img src="images/news5.jpg" alt="校际交流活动">
+                        </div>
+                        <div class="news-item-text">
+                            <p data-zh="5月15日，我协会与天津大学数学建模协会在我校举行了交流活动。双方就协会管理经验、竞赛培训体系、学术活动开展等方面进行了深入交流。通过此次活动，两校协会建立了长期合作机制，未来将共同举办模拟竞赛，联合开展培训讲座，促进两校学生在数学建模领域的交流与合作。" 
+                               data-en="On May 15, our association held an exchange activity with the Mathematical Modeling Association of Tianjin University at our school. Both sides had in-depth exchanges on association management experience, competition training systems, and academic activities. Through this activity, the two associations established a long-term cooperation mechanism and will jointly hold mock competitions and training lectures in the future to promote exchanges and cooperation between students of the two universities in the field of mathematical modeling.">
+                               5月15日，我协会与天津大学数学建模协会在我校举行了交流活动。双方就协会管理经验、竞赛培训体系、学术活动开展等方面进行了深入交流。通过此次活动，两校协会建立了长期合作机制，未来将共同举办模拟竞赛，联合开展培训讲座，促进两校学生在数学建模领域的交流与合作。
+                            </p>
+                            <a href="news-detail.html?id=5" class="read-more" data-zh="阅读更多" data-en="Read More">阅读更多</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="news-item" data-news-id="6">
+                    <div class="news-item-header">
+                        <h2 data-zh="协会成功举办数学建模软件培训" data-en="Mathematical Modeling Software Training">协会成功举办数学建模软件培训</h2>
+                        <span class="news-date">2024-05-10</span>
+                    </div>
+                    <div class="news-item-content">
+                        <div class="news-item-image">
+                            <img src="images/news6.jpg" alt="软件培训">
+                        </div>
+                        <div class="news-item-text">
+                            <p data-zh="5月10日至12日，协会成功举办了为期三天的数学建模软件培训班。培训内容包括MATLAB、Python、Lingo等常用数学建模软件的基本操作和高级应用。来自全校各学院的150余名学生参加了培训，学生们通过实际操作，掌握了各类软件的使用方法，为今后参加数学建模竞赛打下了良好基础。" 
+                               data-en="From May 10 to 12, the association successfully held a three-day mathematical modeling software training course. The training content included basic operations and advanced applications of commonly used mathematical modeling software such as MATLAB, Python, and Lingo. More than 150 students from various colleges of the university participated in the training. Through practical operations, students mastered the use of various software, laying a good foundation for participating in mathematical modeling competitions in the future.">
+                               5月10日至12日，协会成功举办了为期三天的数学建模软件培训班。培训内容包括MATLAB、Python、Lingo等常用数学建模软件的基本操作和高级应用。来自全校各学院的150余名学生参加了培训，学生们通过实际操作，掌握了各类软件的使用方法，为今后参加数学建模竞赛打下了良好基础。
+                            </p>
+                            <a href="news-detail.html?id=6" class="read-more" data-zh="阅读更多" data-en="Read More">阅读更多</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="news-item" data-news-id="7">
+                    <div class="news-item-header">
+                        <h2 data-zh="协会获评校优秀学生社团" data-en="Awarded Excellent Student Association">协会获评校优秀学生社团</h2>
+                        <span class="news-date">2024-05-04</span>
+                    </div>
+                    <div class="news-item-content">
+                        <div class="news-item-image">
+                            <img src="images/news7.jpg" alt="优秀社团">
+                        </div>
+                        <div class="news-item-text">
+                            <p data-zh="在南开大学2023-2024学年度学生社团评优中，我协会凭借丰富多彩的活动、规范的管理和突出的竞赛成绩，再次获得"南开大学优秀学生社团"称号。这是协会连续第六年获此殊荣，充分肯定了协会在促进学生科技创新、提升学生综合素质方面的贡献。" 
+                               data-en="In the student association evaluation of Nankai University for the 2023-2024 academic year, our association was once again awarded the title of 'Excellent Student Association of Nankai University' for its rich and colorful activities, standardized management, and outstanding competition results. This is the sixth consecutive year that the association has received this honor, fully affirming the association's contribution to promoting student scientific and technological innovation and improving students' comprehensive quality.">
+                               在南开大学2023-2024学年度学生社团评优中，我协会凭借丰富多彩的活动、规范的管理和突出的竞赛成绩，再次获得"南开大学优秀学生社团"称号。这是协会连续第六年获此殊荣，充分肯定了协会在促进学生科技创新、提升学生综合素质方面的贡献。
+                            </p>
+                            <a href="news-detail.html?id=7" class="read-more" data-zh="阅读更多" data-en="Read More">阅读更多</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="news-item" data-news-id="8">
+                    <div class="news-item-header">
+                        <h2 data-zh="协会成员参加全国数学建模研讨会" data-en="Members Attend National Modeling Seminar">协会成员参加全国数学建模研讨会</h2>
+                        <span class="news-date">2024-04-25</span>
+                    </div>
+                    <div class="news-item-content">
+                        <div class="news-item-image">
+                            <img src="images/news8.jpg" alt="研讨会">
+                        </div>
+                        <div class="news-item-text">
+                            <p data-zh="4月25日至27日，我协会5名学生代表参加了在北京举行的第十五届全国大学生数学建模研讨会。会上，我校代表介绍了南开大学数学建模教育和竞赛培训的经验，并与全国各高校的同行进行了交流。通过此次研讨会，我协会成员不仅开阔了视野，也为今后协会工作的开展提供了新思路。" 
+                               data-en="From April 25 to 27, five student representatives from our association participated in the 15th National College Student Mathematical Modeling Seminar held in Beijing. At the meeting, our representatives introduced the experience of mathematical modeling education and competition training at Nankai University and communicated with peers from universities across the country. Through this seminar, our association members not only broadened their horizons but also provided new ideas for the future work of the association.">
+                               4月25日至27日，我协会5名学生代表参加了在北京举行的第十五届全国大学生数学建模研讨会。会上，我校代表介绍了南开大学数学建模教育和竞赛培训的经验，并与全国各高校的同行进行了交流。通过此次研讨会，我协会成员不仅开阔了视野，也为今后协会工作的开展提供了新思路。
+                            </p>
+                            <a href="news-detail.html?id=8" class="read-more" data-zh="阅读更多" data-en="Read More">阅读更多</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="news-item" data-news-id="9">
+                    <div class="news-item-header">
+                        <h2 data-zh="协会开展"数模进课堂"活动" data-en="'Mathematical Modeling in Classroom' Activity">协会开展"数模进课堂"活动</h2>
+                        <span class="news-date">2024-04-18</span>
+                    </div>
+                    <div class="news-item-content">
+                        <div class="news-item-image">
+                            <img src="images/news9.jpg" alt="数模进课堂">
+                        </div>
+                        <div class="news-item-text">
+                            <p data-zh="为推广数学建模知识，普及数学建模思想，协会于4月18日启动"数模进课堂"系列活动。协会骨干成员将走进全校各学院，为低年级学生介绍数学建模的基本概念、应用价值和学习方法。首场活动在化学学院举行，吸引了近百名学生参加，反响热烈。活动计划在本学期内覆盖全校八个学院。" 
+                               data-en="To promote mathematical modeling knowledge and popularize mathematical modeling ideas, the association launched a series of 'Mathematical Modeling in Classroom' activities on April 18. The core members of the association will visit various colleges of the university to introduce the basic concepts, application values, and learning methods of mathematical modeling to lower-grade students. The first activity was held in the School of Chemistry, attracting nearly a hundred students, with an enthusiastic response. The activity is planned to cover eight colleges of the university within this semester.">
+                               为推广数学建模知识，普及数学建模思想，协会于4月18日启动"数模进课堂"系列活动。协会骨干成员将走进全校各学院，为低年级学生介绍数学建模的基本概念、应用价值和学习方法。首场活动在化学学院举行，吸引了近百名学生参加，反响热烈。活动计划在本学期内覆盖全校八个学院。
+                            </p>
+                            <a href="news-detail.html?id=9" class="read-more" data-zh="阅读更多" data-en="Read More">阅读更多</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="news-item" data-news-id="10">
+                    <div class="news-item-header">
+                        <h2 data-zh="协会举办企业实践项目对接会" data-en="Enterprise Practice Project Matching Meeting">协会举办企业实践项目对接会</h2>
+                        <span class="news-date">2024-04-10</span>
+                    </div>
+                    <div class="news-item-content">
+                        <div class="news-item-image">
+                            <img src="images/news10.jpg" alt="企业对接会">
+                        </div>
+                        <div class="news-item-text">
+                            <p data-zh="4月10日，协会举办了2024年春季企业实践项目对接会。本次对接会邀请了5家企业代表介绍各自的实践项目，内容涉及数据分析、算法优化、运筹规划等数学建模的实际应用。通过此次活动，30多名协会成员成功与企业对接，将参与为期两个月的实践项目，将数学建模理论知识应用到实际问题解决中。" 
+                               data-en="On April 10, the association held the 2024 Spring Enterprise Practice Project Matching Meeting. The meeting invited representatives from five enterprises to introduce their practical projects, involving the practical application of mathematical modeling such as data analysis, algorithm optimization, and operations research planning. Through this activity, more than 30 association members successfully matched with enterprises and will participate in a two-month practical project, applying theoretical knowledge of mathematical modeling to solve practical problems.">
+                               4月10日，协会举办了2024年春季企业实践项目对接会。本次对接会邀请了5家企业代表介绍各自的实践项目，内容涉及数据分析、算法优化、运筹规划等数学建模的实际应用。通过此次活动，30多名协会成员成功与企业对接，将参与为期两个月的实践项目，将数学建模理论知识应用到实际问题解决中。
+                            </p>
+                            <a href="news-detail.html?id=10" class="read-more" data-zh="阅读更多" data-en="Read More">阅读更多</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 分页导航 -->
+                <div class="pagination">
+                    <a href="#" class="active">1</a>
+                    <a href="#">2</a>
+                    <a href="#">3</a>
+                    <a href="#" class="next">下一页 &raquo;</a>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <!-- 页脚 -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3 data-zh="南开大学数学建模协会" data-en="NKUMMF">南开大学数学建模协会</h3>
+                    <p data-zh="致力于推广数学建模，培养创新人才" data-en="Dedicated to promoting mathematical modeling and cultivating innovative talents">致力于推广数学建模，培养创新人才</p>
+                </div>
+                <div class="footer-section">
+                    <h4 data-zh="快速链接" data-en="Quick Links">快速链接</h4>
+                    <ul>
+                        <li><a href="about.html" data-zh="协会概况" data-en="About">协会概况</a></li>
+                        <li><a href="news.html" data-zh="协会新闻" data-en="News">协会新闻</a></li>
+                        <li><a href="development.html" data-zh="协会建设" data-en="Development">协会建设</a></li>
+                        <li><a href="contact.html" data-zh="联系我们" data-en="Contact">联系我们</a></li>
+                        <li><a href="news-manage.html" data-zh="新闻管理" data-en="News Management">新闻管理</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4 data-zh="联系方式" data-en="Contact Info">联系方式</h4>
+                    <p><i class="fas fa-envelope"></i> nkummf@nankai.edu.cn</p>
+                    <p><i class="fas fa-phone"></i> +86-22-2350-xxxx</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 南开大学数学建模协会. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html> 

@@ -1,0 +1,699 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>历任负责人 - 南开大学数学建模协会</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="icon" href="icon/favicon.ico" type="image/x-icon">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <style>
+        /* 历任负责人页面特有样式 */
+        .leaders-gallery {
+            position: relative;
+            margin: 3rem 0;
+            overflow: hidden;
+        }
+        
+        .carousel-container {
+            width: 100%;
+            position: relative;
+        }
+        
+        .carousel-track {
+            display: flex;
+            transition: transform 0.5s ease-in-out;
+        }
+        
+        .carousel-slide {
+            min-width: 100%;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+            padding: 0 1rem;
+        }
+        
+        .carousel-nav {
+            display: none;
+        }
+        
+        .carousel-nav .carousel-button {
+            display: none;
+        }
+        
+        .carousel-nav .prev {
+            display: none;
+        }
+        
+        .carousel-nav .next {
+            display: none;
+        }
+        
+        .carousel-nav .carousel-button:hover {
+            display: none;
+        }
+        
+        .carousel-indicators {
+            display: flex;
+            justify-content: center;
+            margin-top: 2rem;
+            gap: 0.8rem;
+        }
+        
+        .carousel-indicator {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: var(--border-color);
+            cursor: pointer;
+            transition: transform 0.3s, background 0.3s;
+        }
+        
+        .carousel-indicator.active {
+            background: var(--primary-color);
+            transform: scale(1.4);
+        }
+        
+        .leader-card {
+            background: var(--surface-color);
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+            border: 1px solid var(--border-color);
+            margin-bottom: 2rem;
+        }
+        
+        .leader-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-hover);
+        }
+        
+        .leader-header {
+            background: var(--primary-color);
+            color: white;
+            padding: 1rem;
+            text-align: center;
+            font-weight: bold;
+        }
+        
+        .leader-photos {
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .leader-photo {
+            height: 220px;
+            overflow: hidden;
+            position: relative;
+        }
+        
+        .leader-photo img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        .leader-photo::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 30%;
+            background: linear-gradient(to top, rgba(0,0,0,0.7), transparent);
+        }
+        
+        .leader-photo-title {
+            position: absolute;
+            bottom: 10px;
+            left: 0;
+            width: 100%;
+            text-align: center;
+            color: white;
+            font-weight: bold;
+            z-index: 2;
+        }
+        
+        .leader-position {
+            display: flex;
+            flex-direction: column;
+            padding: 1.5rem;
+            border-bottom: 1px solid var(--border-color);
+        }
+        
+        .leader-position:last-child {
+            border-bottom: none;
+        }
+        
+        .leader-title {
+            font-weight: bold;
+            color: var(--primary-color);
+            margin-bottom: 0.5rem;
+        }
+        
+        .leader-info {
+            display: flex;
+            align-items: center;
+        }
+        
+        .leader-name {
+            font-size: 1.1rem;
+            flex: 1;
+        }
+        
+        .leader-degree {
+            color: var(--text-secondary);
+            font-style: italic;
+            margin-left: 1rem;
+        }
+        
+        .message-content {
+            margin-top: 3rem;
+        }
+        
+        blockquote {
+            position: relative;
+            padding: 1.5rem;
+            background: rgba(113, 26, 95, 0.05);
+            border-radius: 10px;
+            margin-bottom: 1.5rem;
+        }
+        
+        blockquote::before {
+            content: '"';
+            font-size: 3rem;
+            color: var(--primary-color);
+            opacity: 0.2;
+            position: absolute;
+            top: -0.5rem;
+            left: 0.5rem;
+        }
+        
+        blockquote footer {
+            text-align: right;
+            margin-top: 1rem;
+            font-weight: bold;
+            color: var(--primary-color);
+        }
+        
+        @media (max-width: 768px) {
+            .carousel-slide {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 导航栏 -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <img src="icon/nkummf.jpg" alt="NKUMMF Logo" class="logo-img">
+                <span class="logo-text" data-zh="南开大学数学建模协会" data-en="NKUMMF">南开大学数学建模协会</span>
+            </div>
+            <ul class="nav-menu">
+                <li class="nav-item">
+                    <a href="index.html" class="nav-link" data-zh="首页" data-en="Home">首页</a>
+                </li>
+                <li class="nav-item dropdown">
+                    <a href="javascript:void(0)" class="nav-link active dropdown-toggle" data-zh="协会概况" data-en="About">协会概况</a>
+                    <ul class="dropdown-menu">
+                        <li><a href="about.html" class="dropdown-item" data-zh="协会概况" data-en="About Association">协会概况</a></li>
+                        <li><a href="organization.html" class="dropdown-item" data-zh="组织架构" data-en="Organization">组织架构</a></li>
+                        <li><a href="youth-league.html" class="dropdown-item" data-zh="团支部" data-en="Youth League Branch">团支部</a></li>
+                        <li><a href="former-leaders.html" class="dropdown-item active" data-zh="历任负责人" data-en="Former Leaders">历任负责人</a></li>
+                    </ul>
+                </li>
+                <li class="nav-item">
+                    <a href="development.html" class="nav-link" data-zh="协会建设" data-en="Development">协会建设</a>
+                </li>
+                <li class="nav-item">
+                    <a href="contact.html" class="nav-link" data-zh="联系我们" data-en="Contact">联系我们</a>
+                </li>
+            </ul>
+            <div class="nav-controls">
+                <button class="theme-toggle" id="themeToggle">
+                    <i class="fas fa-moon"></i>
+                </button>
+                <button class="lang-toggle" id="langToggle">
+                    <span class="lang-text">EN</span>
+                </button>
+                <div class="hamburger" id="hamburger">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- 页面标题 -->
+    <section class="page-header">
+        <div class="container">
+            <h1 data-zh="历任负责人" data-en="Former Leaders">历任负责人</h1>
+            <p data-zh="回顾南开大学数学建模协会的领路人" data-en="Looking back at the leaders of NKUMMF">回顾南开大学数学建模协会的领路人</p>
+        </div>
+    </section>
+
+    <!-- 主要内容 -->
+    <main class="main-content">
+        <div class="container">
+            <!-- 前言 -->
+            <section class="leaders-intro">
+                <p data-zh="南开大学数学建模协会自成立以来，历任会长和负责人带领协会蓬勃发展，为培养数学建模人才、推动学科竞赛做出了重要贡献。在他们的带领下，协会不断创新发展，取得了显著成绩。这里，我们向历届负责人致敬，感谢他们为协会发展付出的努力和贡献。" 
+                   data-en="Since its establishment, the presidents and leaders of the Nankai University Mathematical Modeling Federation have led the association to flourish, making important contributions to cultivating mathematical modeling talents and promoting discipline competitions. Under their leadership, the association has continuously innovated and developed, achieving remarkable results. Here, we pay tribute to the leaders of all previous sessions and thank them for their efforts and contributions to the development of the association.">
+                   南开大学数学建模协会自成立以来，历任会长和负责人带领协会蓬勃发展，为培养数学建模人才、推动学科竞赛做出了重要贡献。在他们的带领下，协会不断创新发展，取得了显著成绩。这里，我们向历届负责人致敬，感谢他们为协会发展付出的努力和贡献。
+                </p>
+            </section>
+
+            <!-- 历届负责人展示 -->
+            <section class="all-leaders">
+                <h2 class="section-title" data-zh="历届负责人" data-en="Former Leaders">历届负责人</h2>
+                <div class="leaders-gallery">
+                    <div class="carousel-container">
+                        <div class="carousel-track" id="leaderCarousel">
+                            <!-- 2022-2023, 2021-2022, 2020-2021 -->
+                            <div class="carousel-slide">
+                                <div class="leader-card">
+                                    <div class="leader-header">2022-2023</div>
+                                    <div class="leader-photos">
+                                        <div class="leader-photo">
+                                            <img src="images/leader1.jpg" alt="张三">
+                                            <div class="leader-photo-title" data-zh="协会主席" data-en="Association President">协会主席</div>
+                                        </div>
+                                        <div class="leader-photo">
+                                            <img src="images/leader1-2.jpg" alt="张小三">
+                                            <div class="leader-photo-title" data-zh="团支部书记" data-en="Youth League Secretary">团支部书记</div>
+                                        </div>
+                                    </div>
+                                    <div class="leader-position">
+                                        <div class="leader-title" data-zh="协会主席" data-en="Association President">协会主席</div>
+                                        <div class="leader-info">
+                                            <div class="leader-name">张三</div>
+                                            <div class="leader-degree" data-zh="数学科学学院2019级" data-en="School of Mathematical Sciences, 2019">数学科学学院2019级</div>
+                                        </div>
+                                    </div>
+                                    <div class="leader-position">
+                                        <div class="leader-title" data-zh="团支部书记" data-en="Youth League Secretary">团支部书记</div>
+                                        <div class="leader-info">
+                                            <div class="leader-name">张小三</div>
+                                            <div class="leader-degree" data-zh="物理科学学院2019级" data-en="School of Physical Sciences, 2019">物理科学学院2019级</div>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <div class="leader-card">
+                                    <div class="leader-header">2021-2022</div>
+                                    <div class="leader-photos">
+                                        <div class="leader-photo">
+                                            <img src="images/leader2.jpg" alt="李四">
+                                            <div class="leader-photo-title" data-zh="协会主席" data-en="Association President">协会主席</div>
+                                        </div>
+                                        <div class="leader-photo">
+                                            <img src="images/leader2-2.jpg" alt="李小四">
+                                            <div class="leader-photo-title" data-zh="团支部书记" data-en="Youth League Secretary">团支部书记</div>
+                                        </div>
+                                    </div>
+                                    <div class="leader-position">
+                                        <div class="leader-title" data-zh="协会主席" data-en="Association President">协会主席</div>
+                                        <div class="leader-info">
+                                            <div class="leader-name">李四</div>
+                                            <div class="leader-degree" data-zh="物理科学学院2018级" data-en="School of Physical Sciences, 2018">物理科学学院2018级</div>
+                                        </div>
+                                    </div>
+                                    <div class="leader-position">
+                                        <div class="leader-title" data-zh="团支部书记" data-en="Youth League Secretary">团支部书记</div>
+                                        <div class="leader-info">
+                                            <div class="leader-name">李小四</div>
+                                            <div class="leader-degree" data-zh="数学科学学院2018级" data-en="School of Mathematical Sciences, 2018">数学科学学院2018级</div>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <div class="leader-card">
+                                    <div class="leader-header">2020-2021</div>
+                                    <div class="leader-photos">
+                                        <div class="leader-photo">
+                                            <img src="images/leader3.jpg" alt="王五">
+                                            <div class="leader-photo-title" data-zh="协会主席" data-en="Association President">协会主席</div>
+                                        </div>
+                                        <div class="leader-photo">
+                                            <img src="images/leader3-2.jpg" alt="王小五">
+                                            <div class="leader-photo-title" data-zh="团支部书记" data-en="Youth League Secretary">团支部书记</div>
+                                        </div>
+                                    </div>
+                                    <div class="leader-position">
+                                        <div class="leader-title" data-zh="协会主席" data-en="Association President">协会主席</div>
+                                        <div class="leader-info">
+                                            <div class="leader-name">王五</div>
+                                            <div class="leader-degree" data-zh="计算机学院2017级" data-en="School of Computer Science, 2017">计算机学院2017级</div>
+                                        </div>
+                                    </div>
+                                    <div class="leader-position">
+                                        <div class="leader-title" data-zh="团支部书记" data-en="Youth League Secretary">团支部书记</div>
+                                        <div class="leader-info">
+                                            <div class="leader-name">王小五</div>
+                                            <div class="leader-degree" data-zh="电子信息学院2017级" data-en="School of Electronic Information, 2017">电子信息学院2017级</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <!-- 2019-2020, 2018-2019, 2017-2018 -->
+                            <div class="carousel-slide">
+                                <div class="leader-card">
+                                    <div class="leader-header">2019-2020</div>
+                                    <div class="leader-photos">
+                                        <div class="leader-photo">
+                                            <img src="images/leader4.jpg" alt="赵六">
+                                            <div class="leader-photo-title" data-zh="协会主席" data-en="Association President">协会主席</div>
+                                        </div>
+                                        <div class="leader-photo">
+                                            <img src="images/leader4-2.jpg" alt="赵小六">
+                                            <div class="leader-photo-title" data-zh="团支部书记" data-en="Youth League Secretary">团支部书记</div>
+                                        </div>
+                                    </div>
+                                    <div class="leader-position">
+                                        <div class="leader-title" data-zh="协会主席" data-en="Association President">协会主席</div>
+                                        <div class="leader-info">
+                                            <div class="leader-name">赵六</div>
+                                            <div class="leader-degree" data-zh="统计与数据科学学院2016级" data-en="School of Statistics and Data Science, 2016">统计与数据科学学院2016级</div>
+                                        </div>
+                                    </div>
+                                    <div class="leader-position">
+                                        <div class="leader-title" data-zh="团支部书记" data-en="Youth League Secretary">团支部书记</div>
+                                        <div class="leader-info">
+                                            <div class="leader-name">赵小六</div>
+                                            <div class="leader-degree" data-zh="商学院2016级" data-en="Business School, 2016">商学院2016级</div>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <div class="leader-card">
+                                    <div class="leader-header">2018-2019</div>
+                                    <div class="leader-photos">
+                                        <div class="leader-photo">
+                                            <img src="images/leader5.jpg" alt="钱七">
+                                            <div class="leader-photo-title" data-zh="协会主席" data-en="Association President">协会主席</div>
+                                        </div>
+                                        <div class="leader-photo">
+                                            <img src="images/leader5-2.jpg" alt="钱小七">
+                                            <div class="leader-photo-title" data-zh="团支部书记" data-en="Youth League Secretary">团支部书记</div>
+                                        </div>
+                                    </div>
+                                    <div class="leader-position">
+                                        <div class="leader-title" data-zh="协会主席" data-en="Association President">协会主席</div>
+                                        <div class="leader-info">
+                                            <div class="leader-name">钱七</div>
+                                            <div class="leader-degree" data-zh="电子信息与光学工程学院2015级" data-en="School of Electronic Information and Optical Engineering, 2015">电子信息与光学工程学院2015级</div>
+                                        </div>
+                                    </div>
+                                    <div class="leader-position">
+                                        <div class="leader-title" data-zh="团支部书记" data-en="Youth League Secretary">团支部书记</div>
+                                        <div class="leader-info">
+                                            <div class="leader-name">钱小七</div>
+                                            <div class="leader-degree" data-zh="物理科学学院2015级" data-en="School of Physical Sciences, 2015">物理科学学院2015级</div>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <div class="leader-card">
+                                    <div class="leader-header">2017-2018</div>
+                                    <div class="leader-photos">
+                                        <div class="leader-photo">
+                                            <img src="images/leader6.jpg" alt="孙八">
+                                            <div class="leader-photo-title" data-zh="协会主席" data-en="Association President">协会主席</div>
+                                        </div>
+                                        <div class="leader-photo">
+                                            <img src="images/leader6-2.jpg" alt="孙小八">
+                                            <div class="leader-photo-title" data-zh="团支部书记" data-en="Youth League Secretary">团支部书记</div>
+                                        </div>
+                                    </div>
+                                    <div class="leader-position">
+                                        <div class="leader-title" data-zh="协会主席" data-en="Association President">协会主席</div>
+                                        <div class="leader-info">
+                                            <div class="leader-name">孙八</div>
+                                            <div class="leader-degree" data-zh="经济学院2014级" data-en="School of Economics, 2014">经济学院2014级</div>
+                                        </div>
+                                    </div>
+                                    <div class="leader-position">
+                                        <div class="leader-title" data-zh="团支部书记" data-en="Youth League Secretary">团支部书记</div>
+                                        <div class="leader-info">
+                                            <div class="leader-name">孙小八</div>
+                                            <div class="leader-degree" data-zh="数学科学学院2014级" data-en="School of Mathematical Sciences, 2014">数学科学学院2014级</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <!-- 其他年份可继续添加 -->
+                            <div class="carousel-slide">
+                                <div class="leader-card">
+                                    <div class="leader-header">2016-2017</div>
+                                    <div class="leader-photos">
+                                        <div class="leader-photo">
+                                            <img src="images/leader7.jpg" alt="周九">
+                                            <div class="leader-photo-title" data-zh="协会主席" data-en="Association President">协会主席</div>
+                                        </div>
+                                        <div class="leader-photo">
+                                            <img src="images/leader7-2.jpg" alt="周小九">
+                                            <div class="leader-photo-title" data-zh="团支部书记" data-en="Youth League Secretary">团支部书记</div>
+                                        </div>
+                                    </div>
+                                    <div class="leader-position">
+                                        <div class="leader-title" data-zh="协会主席" data-en="Association President">协会主席</div>
+                                        <div class="leader-info">
+                                            <div class="leader-name">周九</div>
+                                            <div class="leader-degree" data-zh="商学院2013级" data-en="Business School, 2013">商学院2013级</div>
+                                        </div>
+                                    </div>
+                                    <div class="leader-position">
+                                        <div class="leader-title" data-zh="团支部书记" data-en="Youth League Secretary">团支部书记</div>
+                                        <div class="leader-info">
+                                            <div class="leader-name">周小九</div>
+                                            <div class="leader-degree" data-zh="计算机学院2013级" data-en="School of Computer Science, 2013">计算机学院2013级</div>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <div class="leader-card">
+                                    <div class="leader-header">2015-2016</div>
+                                    <div class="leader-photos">
+                                        <div class="leader-photo">
+                                            <img src="images/leader8.jpg" alt="吴十">
+                                            <div class="leader-photo-title" data-zh="协会主席" data-en="Association President">协会主席</div>
+                                        </div>
+                                        <div class="leader-photo">
+                                            <img src="images/leader8-2.jpg" alt="吴小十">
+                                            <div class="leader-photo-title" data-zh="团支部书记" data-en="Youth League Secretary">团支部书记</div>
+                                        </div>
+                                    </div>
+                                    <div class="leader-position">
+                                        <div class="leader-title" data-zh="协会主席" data-en="Association President">协会主席</div>
+                                        <div class="leader-info">
+                                            <div class="leader-name">吴十</div>
+                                            <div class="leader-degree" data-zh="数学科学学院2012级" data-en="School of Mathematical Sciences, 2012">数学科学学院2012级</div>
+                                        </div>
+                                    </div>
+                                    <div class="leader-position">
+                                        <div class="leader-title" data-zh="团支部书记" data-en="Youth League Secretary">团支部书记</div>
+                                        <div class="leader-info">
+                                            <div class="leader-name">吴小十</div>
+                                            <div class="leader-degree" data-zh="物理科学学院2012级" data-en="School of Physical Sciences, 2012">物理科学学院2012级</div>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <div class="leader-card">
+                                    <div class="leader-header">2014-2015</div>
+                                    <div class="leader-photos">
+                                        <div class="leader-photo">
+                                            <img src="images/leader9.jpg" alt="郑十一">
+                                            <div class="leader-photo-title" data-zh="协会主席" data-en="Association President">协会主席</div>
+                                        </div>
+                                        <div class="leader-photo">
+                                            <img src="images/leader9-2.jpg" alt="郑小十一">
+                                            <div class="leader-photo-title" data-zh="团支部书记" data-en="Youth League Secretary">团支部书记</div>
+                                        </div>
+                                    </div>
+                                    <div class="leader-position">
+                                        <div class="leader-title" data-zh="协会主席" data-en="Association President">协会主席</div>
+                                        <div class="leader-info">
+                                            <div class="leader-name">郑十一</div>
+                                            <div class="leader-degree" data-zh="物理科学学院2011级" data-en="School of Physical Sciences, 2011">物理科学学院2011级</div>
+                                        </div>
+                                    </div>
+                                    <div class="leader-position">
+                                        <div class="leader-title" data-zh="团支部书记" data-en="Youth League Secretary">团支部书记</div>
+                                        <div class="leader-info">
+                                            <div class="leader-name">郑小十一</div>
+                                            <div class="leader-degree" data-zh="统计与数据科学学院2011级" data-en="School of Statistics and Data Science, 2011">统计与数据科学学院2011级</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="carousel-indicators" id="carouselIndicators">
+                            <!-- 指示器将通过JS动态生成 -->
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 历任会长寄语 -->
+            <section class="leaders-messages">
+                <h2 class="section-title" data-zh="负责人寄语" data-en="Messages from Leaders">负责人寄语</h2>
+                <div class="message-content">
+                    <blockquote data-zh="协会的发展离不开每一位成员的付出，希望未来的学弟学妹们能够继续发扬数学建模精神，不断创新，取得更加辉煌的成绩。" 
+                        data-en="The development of the association is inseparable from the contribution of every member. I hope that future juniors can continue to carry forward the spirit of mathematical modeling, continuously innovate, and achieve more brilliant results.">
+                        协会的发展离不开每一位成员的付出，希望未来的学弟学妹们能够继续发扬数学建模精神，不断创新，取得更加辉煌的成绩。
+                        <footer>— 张三（2022-2023年协会主席）</footer>
+                    </blockquote>
+                    <blockquote data-zh="数学建模是一门实践性很强的学科，希望大家在学习理论知识的同时，积极参与实践，提高解决实际问题的能力。" 
+                        data-en="Mathematical modeling is a very practical discipline. I hope that everyone will actively participate in practice while learning theoretical knowledge to improve their ability to solve practical problems.">
+                        数学建模是一门实践性很强的学科，希望大家在学习理论知识的同时，积极参与实践，提高解决实际问题的能力。
+                        <footer>— 李四（2021-2022年协会主席）</footer>
+                    </blockquote>
+                    <blockquote data-zh="协会为每一位热爱数学建模的同学提供了展示自我的平台，希望大家能够在这里找到志同道合的伙伴，共同进步。" 
+                        data-en="The association provides a platform for every student who loves mathematical modeling to showcase themselves. I hope everyone can find like-minded partners here and progress together.">
+                        协会为每一位热爱数学建模的同学提供了展示自我的平台，希望大家能够在这里找到志同道合的伙伴，共同进步。
+                        <footer>— 王五（2020-2021年协会主席）</footer>
+                    </blockquote>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <!-- 页脚 -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3 data-zh="南开大学数学建模协会" data-en="NKUMMF">南开大学数学建模协会</h3>
+                    <p data-zh="致力于推广数学建模，培养创新人才" data-en="Dedicated to promoting mathematical modeling and cultivating innovative talents">致力于推广数学建模，培养创新人才</p>
+                </div>
+                <div class="footer-section">
+                    <h4 data-zh="快速链接" data-en="Quick Links">快速链接</h4>
+                    <ul>
+                        <li><a href="about.html" data-zh="协会概况" data-en="About">协会概况</a></li>
+                        <li><a href="development.html" data-zh="协会建设" data-en="Development">协会建设</a></li>
+                        <li><a href="contact.html" data-zh="联系我们" data-en="Contact">联系我们</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4 data-zh="联系方式" data-en="Contact Info">联系方式</h4>
+                    <p><i class="fas fa-envelope"></i> nkummf@nankai.edu.cn</p>
+                    <p><i class="fas fa-phone"></i> +86-22-2350-xxxx</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 南开大学数学建模协会. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+    <script>
+        // 轮播功能
+        document.addEventListener('DOMContentLoaded', function() {
+            const track = document.getElementById('leaderCarousel');
+            const slides = Array.from(track.getElementsByClassName('carousel-slide'));
+            const indicators = document.getElementById('carouselIndicators');
+            
+            let currentIndex = 0;
+            const slideWidth = 100; // 百分比
+            
+            // 创建指示器
+            slides.forEach((_, index) => {
+                const indicator = document.createElement('div');
+                indicator.classList.add('carousel-indicator');
+                if (index === 0) {
+                    indicator.classList.add('active');
+                }
+                indicator.addEventListener('click', () => {
+                    goToSlide(index);
+                });
+                indicators.appendChild(indicator);
+            });
+            
+            const indicatorDots = Array.from(indicators.getElementsByClassName('carousel-indicator'));
+            
+            // 更新当前幻灯片
+            function updateSlide() {
+                track.style.transform = `translateX(-${currentIndex * slideWidth}%)`;
+                
+                // 更新指示器
+                indicatorDots.forEach((dot, index) => {
+                    if (index === currentIndex) {
+                        dot.classList.add('active');
+                    } else {
+                        dot.classList.remove('active');
+                    }
+                });
+            }
+            
+            // 前往特定幻灯片
+            function goToSlide(index) {
+                currentIndex = index;
+                updateSlide();
+            }
+            
+            // 触摸滑动支持
+            let touchStartX = 0;
+            let touchEndX = 0;
+            
+            track.addEventListener('touchstart', (e) => {
+                touchStartX = e.changedTouches[0].screenX;
+            });
+            
+            track.addEventListener('touchend', (e) => {
+                touchEndX = e.changedTouches[0].screenX;
+                handleSwipe();
+            });
+            
+            function handleSwipe() {
+                if (touchEndX < touchStartX) {
+                    // 向左滑动 - 下一张
+                    if (currentIndex === slides.length - 1) {
+                        currentIndex = 0;
+                    } else {
+                        currentIndex++;
+                    }
+                    updateSlide();
+                }
+                if (touchEndX > touchStartX) {
+                    // 向右滑动 - 上一张
+                    if (currentIndex === 0) {
+                        currentIndex = slides.length - 1;
+                    } else {
+                        currentIndex--;
+                    }
+                    updateSlide();
+                }
+            }
+            
+            // 键盘支持
+            document.addEventListener('keydown', (e) => {
+                if (e.key === 'ArrowRight') {
+                    if (currentIndex === slides.length - 1) {
+                        currentIndex = 0;
+                    } else {
+                        currentIndex++;
+                    }
+                    updateSlide();
+                }
+                if (e.key === 'ArrowLeft') {
+                    if (currentIndex === 0) {
+                        currentIndex = slides.length - 1;
+                    } else {
+                        currentIndex--;
+                    }
+                    updateSlide();
+                }
+            });
+        });
+    </script>
+</body>
+</html> 

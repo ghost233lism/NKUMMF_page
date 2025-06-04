@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>新闻详情 - 南开大学数学建模协会</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="icon" href="icon/favicon.ico" type="image/x-icon">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+    <!-- 导航栏 -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <img src="icon/nkummf.jpg" alt="NKUMMF Logo" class="logo-img">
+                <span class="logo-text" data-zh="南开大学数学建模协会" data-en="NKUMMF">南开大学数学建模协会</span>
+            </div>
+            <ul class="nav-menu">
+                <li class="nav-item">
+                    <a href="index.html" class="nav-link" data-zh="首页" data-en="Home">首页</a>
+                </li>
+                <li class="nav-item dropdown">
+                    <a href="javascript:void(0)" class="nav-link dropdown-toggle" data-zh="协会概况" data-en="About">协会概况</a>
+                    <ul class="dropdown-menu">
+                        <li><a href="about.html" class="dropdown-item" data-zh="协会概况" data-en="About Association">协会概况</a></li>
+                        <li><a href="organization.html" class="dropdown-item" data-zh="组织架构" data-en="Organization">组织架构</a></li>
+                        <li><a href="youth-league.html" class="dropdown-item" data-zh="团支部" data-en="Youth League Branch">团支部</a></li>
+                        <li><a href="former-leaders.html" class="dropdown-item" data-zh="历任负责人" data-en="Former Leaders">历任负责人</a></li>
+                    </ul>
+                </li>
+                <li class="nav-item">
+                    <a href="news.html" class="nav-link active" data-zh="协会新闻" data-en="News">协会新闻</a>
+                </li>
+                <li class="nav-item">
+                    <a href="development.html" class="nav-link" data-zh="协会建设" data-en="Development">协会建设</a>
+                </li>
+                <li class="nav-item">
+                    <a href="contact.html" class="nav-link" data-zh="联系我们" data-en="Contact">联系我们</a>
+                </li>
+            </ul>
+            <div class="nav-controls">
+                <button class="theme-toggle" id="themeToggle">
+                    <i class="fas fa-moon"></i>
+                </button>
+                <button class="lang-toggle" id="langToggle">
+                    <span class="lang-text">EN</span>
+                </button>
+                <div class="hamburger" id="hamburger">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- 主要内容 -->
+    <main class="main-content">
+        <div class="container">
+            <div class="news-detail" id="newsDetail">
+                <!-- 新闻内容将通过JavaScript动态加载 -->
+                <div class="news-detail-header">
+                    <h1 id="newsTitle" data-zh="" data-en="">新闻标题</h1>
+                    <div class="news-meta">
+                        <span class="news-date" id="newsDate">2024-06-10</span>
+                        <span class="news-author" id="newsAuthor">作者：管理员</span>
+                    </div>
+                </div>
+                
+                <div class="news-detail-content">
+                    <div class="news-detail-image">
+                        <img id="newsImage" src="images/news1.jpg" alt="新闻图片">
+                    </div>
+                    <div class="news-detail-text" id="newsContent">
+                        <!-- 新闻内容 -->
+                    </div>
+                </div>
+                
+                <div class="news-navigation">
+                    <a href="#" class="prev-news" id="prevNews" data-zh="上一篇" data-en="Previous">上一篇</a>
+                    <a href="news.html" class="back-to-list" data-zh="返回列表" data-en="Back to List">返回列表</a>
+                    <a href="#" class="next-news" id="nextNews" data-zh="下一篇" data-en="Next">下一篇</a>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- 页脚 -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3 data-zh="南开大学数学建模协会" data-en="NKUMMF">南开大学数学建模协会</h3>
+                    <p data-zh="致力于推广数学建模，培养创新人才" data-en="Dedicated to promoting mathematical modeling and cultivating innovative talents">致力于推广数学建模，培养创新人才</p>
+                </div>
+                <div class="footer-section">
+                    <h4 data-zh="快速链接" data-en="Quick Links">快速链接</h4>
+                    <ul>
+                        <li><a href="about.html" data-zh="协会概况" data-en="About">协会概况</a></li>
+                        <li><a href="news.html" data-zh="协会新闻" data-en="News">协会新闻</a></li>
+                        <li><a href="development.html" data-zh="协会建设" data-en="Development">协会建设</a></li>
+                        <li><a href="contact.html" data-zh="联系我们" data-en="Contact">联系我们</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4 data-zh="联系方式" data-en="Contact Info">联系方式</h4>
+                    <p><i class="fas fa-envelope"></i> nkummf@nankai.edu.cn</p>
+                    <p><i class="fas fa-phone"></i> +86-22-2350-xxxx</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 南开大学数学建模协会. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // 从URL获取新闻ID
+            const urlParams = new URLSearchParams(window.location.search);
+            const newsId = urlParams.get('id');
+            
+            if (newsId) {
+                // 加载新闻详情
+                loadNewsDetail(newsId);
+            } else {
+                // 如果没有指定ID，重定向到新闻列表页
+                window.location.href = 'news.html';
+            }
+        });
+        
+        // 加载新闻详情
+        function loadNewsDetail(newsId) {
+            // 这里应该是从服务器获取数据
+            // 为了演示，使用脚本中的静态数据
+            fetchNewsData()
+                .then(data => {
+                    const news = data.find(item => item.id.toString() === newsId);
+                    if (news) {
+                        displayNewsDetail(news, data);
+                    } else {
+                        showErrorMessage();
+                    }
+                })
+                .catch(error => {
+                    console.error('获取新闻数据失败:', error);
+                    showErrorMessage();
+                });
+        }
+        
+        // 显示新闻详情
+        function displayNewsDetail(news, allNews) {
+            // 设置页面标题
+            document.title = `${isEnglish ? news.title.en : news.title.zh} - 南开大学数学建模协会`;
+            
+            // 填充新闻内容
+            document.getElementById('newsTitle').textContent = isEnglish ? news.title.en : news.title.zh;
+            document.getElementById('newsTitle').setAttribute('data-zh', news.title.zh);
+            document.getElementById('newsTitle').setAttribute('data-en', news.title.en);
+            
+            document.getElementById('newsDate').textContent = news.date;
+            document.getElementById('newsImage').src = news.image;
+            document.getElementById('newsImage').alt = isEnglish ? news.title.en : news.title.zh;
+            
+            // 新闻内容可能包含HTML，使用innerHTML
+            const contentEl = document.getElementById('newsContent');
+            const content = isEnglish ? news.content.en : news.content.zh;
+            contentEl.innerHTML = `<p>${content}</p>`;
+            
+            // 设置上一篇和下一篇链接
+            setupNavigation(news, allNews);
+        }
+        
+        // 设置上一篇和下一篇导航
+        function setupNavigation(currentNews, allNews) {
+            const currentIndex = allNews.findIndex(news => news.id === currentNews.id);
+            const prevNews = document.getElementById('prevNews');
+            const nextNews = document.getElementById('nextNews');
+            
+            // 上一篇
+            if (currentIndex < allNews.length - 1) {
+                const prev = allNews[currentIndex + 1];
+                prevNews.href = `news-detail.html?id=${prev.id}`;
+                prevNews.style.display = 'inline-block';
+            } else {
+                prevNews.style.display = 'none';
+            }
+            
+            // 下一篇
+            if (currentIndex > 0) {
+                const next = allNews[currentIndex - 1];
+                nextNews.href = `news-detail.html?id=${next.id}`;
+                nextNews.style.display = 'inline-block';
+            } else {
+                nextNews.style.display = 'none';
+            }
+        }
+        
+        // 显示错误消息
+        function showErrorMessage() {
+            const newsDetail = document.getElementById('newsDetail');
+            newsDetail.innerHTML = `
+                <div class="error-message">
+                    <h2 data-zh="未找到新闻" data-en="News Not Found">未找到新闻</h2>
+                    <p data-zh="抱歉，您请求的新闻不存在或已被删除。" data-en="Sorry, the news you requested does not exist or has been deleted.">抱歉，您请求的新闻不存在或已被删除。</p>
+                    <a href="news.html" class="back-to-list" data-zh="返回新闻列表" data-en="Back to News List">返回新闻列表</a>
+                </div>
+            `;
+        }
+    </script>
+</body>
+</html> 

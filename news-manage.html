@@ -1,0 +1,601 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>新闻管理 - 南开大学数学建模协会</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="icon" href="icon/favicon.ico" type="image/x-icon">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <style>
+        .admin-panel {
+            background: var(--surface-color);
+            border-radius: 15px;
+            padding: 2rem;
+            margin-bottom: 2rem;
+            box-shadow: var(--shadow);
+            border: 1px solid var(--border-color);
+        }
+        
+        .admin-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 2rem;
+            border-bottom: 1px solid var(--border-color);
+            padding-bottom: 1rem;
+        }
+        
+        .form-group label {
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            display: block;
+        }
+        
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+        
+        .form-control {
+            width: 100%;
+            padding: 0.75rem;
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            background: var(--background-color);
+            color: var(--text-primary);
+        }
+        
+        .form-control:focus {
+            border-color: var(--primary-color);
+            outline: none;
+        }
+        
+        .btn-group {
+            display: flex;
+            gap: 1rem;
+            margin-top: 2rem;
+        }
+        
+        .btn {
+            padding: 0.75rem 1.5rem;
+            border-radius: 8px;
+            font-weight: 600;
+            cursor: pointer;
+            border: none;
+            transition: var(--transition);
+        }
+        
+        .btn-primary {
+            background: var(--primary-color);
+            color: white;
+        }
+        
+        .btn-secondary {
+            background: var(--border-color);
+            color: var(--text-primary);
+        }
+        
+        .btn:hover {
+            opacity: 0.9;
+            transform: translateY(-2px);
+        }
+        
+        .news-list-admin {
+            margin-top: 3rem;
+        }
+        
+        .news-item-admin {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem;
+            border-bottom: 1px solid var(--border-color);
+        }
+        
+        .news-actions {
+            display: flex;
+            gap: 0.5rem;
+        }
+        
+        .action-btn {
+            background: none;
+            border: none;
+            font-size: 1.2rem;
+            cursor: pointer;
+            color: var(--text-secondary);
+            transition: var(--transition);
+        }
+        
+        .edit-btn:hover {
+            color: var(--primary-color);
+        }
+        
+        .delete-btn:hover {
+            color: #f44336;
+        }
+        
+        .preview-image {
+            max-width: 200px;
+            max-height: 150px;
+            margin-top: 10px;
+            border-radius: 5px;
+            display: none;
+        }
+        
+        .language-tabs {
+            display: flex;
+            margin-bottom: 1rem;
+            border-bottom: 1px solid var(--border-color);
+        }
+        
+        .language-tab {
+            padding: 0.5rem 1rem;
+            cursor: pointer;
+            border: 1px solid transparent;
+            border-bottom: none;
+            border-radius: 5px 5px 0 0;
+            margin-right: 0.5rem;
+        }
+        
+        .language-tab.active {
+            background: var(--primary-color);
+            color: white;
+            border-color: var(--primary-color);
+        }
+        
+        .language-content {
+            display: none;
+        }
+        
+        .language-content.active {
+            display: block;
+        }
+        
+        .login-form {
+            max-width: 400px;
+            margin: 0 auto;
+        }
+    </style>
+</head>
+<body>
+    <!-- 导航栏 -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <img src="icon/nkummf.jpg" alt="NKUMMF Logo" class="logo-img">
+                <span class="logo-text" data-zh="南开大学数学建模协会" data-en="NKUMMF">南开大学数学建模协会</span>
+            </div>
+            <ul class="nav-menu">
+                <li class="nav-item">
+                    <a href="index.html" class="nav-link" data-zh="首页" data-en="Home">首页</a>
+                </li>
+                <li class="nav-item dropdown">
+                    <a href="javascript:void(0)" class="nav-link dropdown-toggle" data-zh="协会概况" data-en="About">协会概况</a>
+                    <ul class="dropdown-menu">
+                        <li><a href="about.html" class="dropdown-item" data-zh="协会概况" data-en="About Association">协会概况</a></li>
+                        <li><a href="organization.html" class="dropdown-item" data-zh="组织架构" data-en="Organization">组织架构</a></li>
+                        <li><a href="youth-league.html" class="dropdown-item" data-zh="团支部" data-en="Youth League Branch">团支部</a></li>
+                        <li><a href="former-leaders.html" class="dropdown-item" data-zh="历任负责人" data-en="Former Leaders">历任负责人</a></li>
+                    </ul>
+                </li>
+                <li class="nav-item">
+                    <a href="news.html" class="nav-link" data-zh="协会新闻" data-en="News">协会新闻</a>
+                </li>
+                <li class="nav-item">
+                    <a href="development.html" class="nav-link" data-zh="协会建设" data-en="Development">协会建设</a>
+                </li>
+                <li class="nav-item">
+                    <a href="contact.html" class="nav-link" data-zh="联系我们" data-en="Contact">联系我们</a>
+                </li>
+            </ul>
+            <div class="nav-controls">
+                <button class="theme-toggle" id="themeToggle">
+                    <i class="fas fa-moon"></i>
+                </button>
+                <button class="lang-toggle" id="langToggle">
+                    <span class="lang-text">EN</span>
+                </button>
+                <div class="hamburger" id="hamburger">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- 页面标题 -->
+    <section class="page-header">
+        <div class="container">
+            <h1 data-zh="新闻管理" data-en="News Management">新闻管理</h1>
+            <p data-zh="管理协会新闻内容" data-en="Manage association news content">管理协会新闻内容</p>
+        </div>
+    </section>
+
+    <!-- 主要内容 -->
+    <main class="main-content">
+        <div class="container">
+            <!-- 登录表单 -->
+            <div id="loginSection" class="admin-panel login-form">
+                <div class="admin-header">
+                    <h2 data-zh="管理员登录" data-en="Administrator Login">管理员登录</h2>
+                </div>
+                <form id="loginForm">
+                    <div class="form-group">
+                        <label for="username" data-zh="用户名" data-en="Username">用户名</label>
+                        <input type="text" id="username" class="form-control" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="password" data-zh="密码" data-en="Password">密码</label>
+                        <input type="password" id="password" class="form-control" required>
+                    </div>
+                    <div class="btn-group">
+                        <button type="submit" class="btn btn-primary" data-zh="登录" data-en="Login">登录</button>
+                    </div>
+                </form>
+            </div>
+
+            <!-- 新闻管理面板 -->
+            <div id="adminPanel" class="admin-panel" style="display: none;">
+                <div class="admin-header">
+                    <h2 data-zh="发布新闻" data-en="Publish News">发布新闻</h2>
+                    <button id="logoutBtn" class="btn btn-secondary" data-zh="退出登录" data-en="Logout">退出登录</button>
+                </div>
+                
+                <form id="newsForm">
+                    <input type="hidden" id="newsId">
+                    
+                    <!-- 语言标签页 -->
+                    <div class="language-tabs">
+                        <div class="language-tab active" data-lang="zh" data-zh="中文" data-en="Chinese">中文</div>
+                        <div class="language-tab" data-lang="en" data-zh="英文" data-en="English">英文</div>
+                    </div>
+                    
+                    <!-- 中文内容 -->
+                    <div class="language-content active" data-lang="zh">
+                        <div class="form-group">
+                            <label for="titleZh" data-zh="标题（中文）" data-en="Title (Chinese)">标题（中文）</label>
+                            <input type="text" id="titleZh" class="form-control" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="contentZh" data-zh="内容（中文）" data-en="Content (Chinese)">内容（中文）</label>
+                            <textarea id="contentZh" class="form-control" rows="8" required></textarea>
+                        </div>
+                    </div>
+                    
+                    <!-- 英文内容 -->
+                    <div class="language-content" data-lang="en">
+                        <div class="form-group">
+                            <label for="titleEn" data-zh="标题（英文）" data-en="Title (English)">标题（英文）</label>
+                            <input type="text" id="titleEn" class="form-control" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="contentEn" data-zh="内容（英文）" data-en="Content (English)">内容（英文）</label>
+                            <textarea id="contentEn" class="form-control" rows="8" required></textarea>
+                        </div>
+                    </div>
+                    
+                    <!-- 共同字段 -->
+                    <div class="form-group">
+                        <label for="newsDate" data-zh="日期" data-en="Date">日期</label>
+                        <input type="date" id="newsDate" class="form-control" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="newsImage" data-zh="图片" data-en="Image">图片</label>
+                        <input type="file" id="newsImage" class="form-control" accept="image/*">
+                        <img id="imagePreview" class="preview-image" src="#" alt="预览图片">
+                    </div>
+                    
+                    <div class="btn-group">
+                        <button type="submit" class="btn btn-primary" data-zh="发布" data-en="Publish">发布</button>
+                        <button type="button" id="resetBtn" class="btn btn-secondary" data-zh="重置" data-en="Reset">重置</button>
+                    </div>
+                </form>
+                
+                <!-- 新闻列表 -->
+                <div class="news-list-admin">
+                    <h3 data-zh="已发布新闻" data-en="Published News">已发布新闻</h3>
+                    <div id="newsList" class="news-list-container">
+                        <!-- 新闻项将通过JavaScript动态加载 -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- 页脚 -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3 data-zh="南开大学数学建模协会" data-en="NKUMMF">南开大学数学建模协会</h3>
+                    <p data-zh="致力于推广数学建模，培养创新人才" data-en="Dedicated to promoting mathematical modeling and cultivating innovative talents">致力于推广数学建模，培养创新人才</p>
+                </div>
+                <div class="footer-section">
+                    <h4 data-zh="快速链接" data-en="Quick Links">快速链接</h4>
+                    <ul>
+                        <li><a href="about.html" data-zh="协会概况" data-en="About">协会概况</a></li>
+                        <li><a href="news.html" data-zh="协会新闻" data-en="News">协会新闻</a></li>
+                        <li><a href="development.html" data-zh="协会建设" data-en="Development">协会建设</a></li>
+                        <li><a href="contact.html" data-zh="联系我们" data-en="Contact">联系我们</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4 data-zh="联系方式" data-en="Contact Info">联系方式</h4>
+                    <p><i class="fas fa-envelope"></i> nkummf@nankai.edu.cn</p>
+                    <p><i class="fas fa-phone"></i> +86-22-2350-xxxx</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 南开大学数学建模协会. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const loginForm = document.getElementById('loginForm');
+            const adminPanel = document.getElementById('adminPanel');
+            const loginSection = document.getElementById('loginSection');
+            const newsForm = document.getElementById('newsForm');
+            const resetBtn = document.getElementById('resetBtn');
+            const logoutBtn = document.getElementById('logoutBtn');
+            const newsImage = document.getElementById('newsImage');
+            const imagePreview = document.getElementById('imagePreview');
+            const languageTabs = document.querySelectorAll('.language-tab');
+            
+            // 模拟管理员账号
+            const adminUser = {
+                username: 'admin',
+                password: 'nkummf2024'
+            };
+            
+            // 检查是否已登录
+            const isLoggedIn = localStorage.getItem('nkummf_admin_logged_in') === 'true';
+            if (isLoggedIn) {
+                loginSection.style.display = 'none';
+                adminPanel.style.display = 'block';
+                loadNewsList();
+            }
+            
+            // 登录表单提交
+            loginForm.addEventListener('submit', function(e) {
+                e.preventDefault();
+                
+                const username = document.getElementById('username').value;
+                const password = document.getElementById('password').value;
+                
+                if (username === adminUser.username && password === adminUser.password) {
+                    localStorage.setItem('nkummf_admin_logged_in', 'true');
+                    loginSection.style.display = 'none';
+                    adminPanel.style.display = 'block';
+                    loadNewsList();
+                } else {
+                    alert('用户名或密码错误');
+                }
+            });
+            
+            // 退出登录
+            logoutBtn.addEventListener('click', function() {
+                localStorage.removeItem('nkummf_admin_logged_in');
+                adminPanel.style.display = 'none';
+                loginSection.style.display = 'block';
+            });
+            
+            // 切换语言标签页
+            languageTabs.forEach(tab => {
+                tab.addEventListener('click', function() {
+                    const lang = this.getAttribute('data-lang');
+                    
+                    // 切换标签页
+                    document.querySelectorAll('.language-tab').forEach(t => {
+                        t.classList.remove('active');
+                    });
+                    this.classList.add('active');
+                    
+                    // 切换内容
+                    document.querySelectorAll('.language-content').forEach(content => {
+                        content.classList.remove('active');
+                        if (content.getAttribute('data-lang') === lang) {
+                            content.classList.add('active');
+                        }
+                    });
+                });
+            });
+            
+            // 图片预览
+            newsImage.addEventListener('change', function() {
+                const file = this.files[0];
+                if (file) {
+                    const reader = new FileReader();
+                    reader.onload = function(e) {
+                        imagePreview.src = e.target.result;
+                        imagePreview.style.display = 'block';
+                    }
+                    reader.readAsDataURL(file);
+                }
+            });
+            
+            // 重置表单
+            resetBtn.addEventListener('click', function() {
+                resetForm();
+            });
+            
+            // 新闻表单提交
+            newsForm.addEventListener('submit', function(e) {
+                e.preventDefault();
+                
+                // 获取表单数据
+                const newsId = document.getElementById('newsId').value || (Date.now().toString());
+                const titleZh = document.getElementById('titleZh').value;
+                const titleEn = document.getElementById('titleEn').value;
+                const contentZh = document.getElementById('contentZh').value;
+                const contentEn = document.getElementById('contentEn').value;
+                const date = document.getElementById('newsDate').value;
+                
+                // 处理图片
+                const imageFile = document.getElementById('newsImage').files[0];
+                let imagePath = '';
+                
+                if (imageFile) {
+                    // 在实际应用中，这里应该上传图片到服务器并获取路径
+                    // 由于这是前端演示，我们使用FileReader生成数据URL
+                    const reader = new FileReader();
+                    reader.onload = function(e) {
+                        imagePath = e.target.result;
+                        saveNews(newsId, titleZh, titleEn, contentZh, contentEn, date, imagePath);
+                    };
+                    reader.readAsDataURL(imageFile);
+                } else {
+                    // 如果没有选择新图片，使用默认图片或之前的图片
+                    imagePath = document.getElementById('imagePreview').src || 'images/news1.jpg';
+                    saveNews(newsId, titleZh, titleEn, contentZh, contentEn, date, imagePath);
+                }
+            });
+            
+            // 保存新闻
+            function saveNews(id, titleZh, titleEn, contentZh, contentEn, date, imagePath) {
+                // 获取现有新闻数据
+                let newsData = JSON.parse(localStorage.getItem('nkummf_news_data')) || [];
+                
+                // 检查是否是编辑现有新闻
+                const existingIndex = newsData.findIndex(news => news.id.toString() === id);
+                
+                // 创建新闻对象
+                const newsItem = {
+                    id: parseInt(id),
+                    title: {
+                        zh: titleZh,
+                        en: titleEn
+                    },
+                    content: {
+                        zh: contentZh,
+                        en: contentEn
+                    },
+                    date: date,
+                    image: imagePath
+                };
+                
+                if (existingIndex >= 0) {
+                    // 更新现有新闻
+                    newsData[existingIndex] = newsItem;
+                } else {
+                    // 添加新新闻
+                    newsData.unshift(newsItem);
+                }
+                
+                // 保存到localStorage
+                localStorage.setItem('nkummf_news_data', JSON.stringify(newsData));
+                
+                // 重置表单并刷新新闻列表
+                resetForm();
+                loadNewsList();
+                
+                alert('新闻保存成功！');
+            }
+            
+            // 加载新闻列表
+            function loadNewsList() {
+                const newsListContainer = document.getElementById('newsList');
+                const newsData = JSON.parse(localStorage.getItem('nkummf_news_data')) || [];
+                
+                // 清空列表
+                newsListContainer.innerHTML = '';
+                
+                // 添加新闻项
+                newsData.forEach(news => {
+                    const newsItem = document.createElement('div');
+                    newsItem.className = 'news-item-admin';
+                    
+                    newsItem.innerHTML = `
+                        <div class="news-info">
+                            <h4>${news.title.zh}</h4>
+                            <span class="news-date">${news.date}</span>
+                        </div>
+                        <div class="news-actions">
+                            <button class="action-btn edit-btn" data-id="${news.id}">
+                                <i class="fas fa-edit"></i>
+                            </button>
+                            <button class="action-btn delete-btn" data-id="${news.id}">
+                                <i class="fas fa-trash"></i>
+                            </button>
+                            <a href="news-detail.html?id=${news.id}" target="_blank" class="action-btn view-btn">
+                                <i class="fas fa-eye"></i>
+                            </a>
+                        </div>
+                    `;
+                    
+                    newsListContainer.appendChild(newsItem);
+                });
+                
+                // 添加编辑和删除事件监听器
+                document.querySelectorAll('.edit-btn').forEach(btn => {
+                    btn.addEventListener('click', function() {
+                        const newsId = this.getAttribute('data-id');
+                        editNews(newsId);
+                    });
+                });
+                
+                document.querySelectorAll('.delete-btn').forEach(btn => {
+                    btn.addEventListener('click', function() {
+                        const newsId = this.getAttribute('data-id');
+                        deleteNews(newsId);
+                    });
+                });
+            }
+            
+            // 编辑新闻
+            function editNews(newsId) {
+                const newsData = JSON.parse(localStorage.getItem('nkummf_news_data')) || [];
+                const news = newsData.find(item => item.id.toString() === newsId);
+                
+                if (news) {
+                    // 填充表单
+                    document.getElementById('newsId').value = news.id;
+                    document.getElementById('titleZh').value = news.title.zh;
+                    document.getElementById('titleEn').value = news.title.en;
+                    document.getElementById('contentZh').value = news.content.zh;
+                    document.getElementById('contentEn').value = news.content.en;
+                    document.getElementById('newsDate').value = news.date;
+                    
+                    // 显示图片预览
+                    document.getElementById('imagePreview').src = news.image;
+                    document.getElementById('imagePreview').style.display = 'block';
+                    
+                    // 滚动到表单顶部
+                    document.getElementById('newsForm').scrollIntoView({ behavior: 'smooth' });
+                }
+            }
+            
+            // 删除新闻
+            function deleteNews(newsId) {
+                if (confirm('确定要删除这条新闻吗？')) {
+                    let newsData = JSON.parse(localStorage.getItem('nkummf_news_data')) || [];
+                    newsData = newsData.filter(news => news.id.toString() !== newsId);
+                    localStorage.setItem('nkummf_news_data', JSON.stringify(newsData));
+                    loadNewsList();
+                }
+            }
+            
+            // 重置表单
+            function resetForm() {
+                document.getElementById('newsId').value = '';
+                document.getElementById('titleZh').value = '';
+                document.getElementById('titleEn').value = '';
+                document.getElementById('contentZh').value = '';
+                document.getElementById('contentEn').value = '';
+                document.getElementById('newsDate').value = new Date().toISOString().split('T')[0];
+                document.getElementById('newsImage').value = '';
+                document.getElementById('imagePreview').style.display = 'none';
+            }
+            
+            // 初始化日期为今天
+            document.getElementById('newsDate').value = new Date().toISOString().split('T')[0];
+        });
+    </script>
+</body>
+</html> 

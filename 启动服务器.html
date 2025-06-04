@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>网站预览指南</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 2rem;
+            line-height: 1.6;
+            background: linear-gradient(135deg, #711a5f, #8f2773);
+            color: white;
+            min-height: 100vh;
+        }
+        .container {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            padding: 2rem;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+        }
+        h1 {
+            text-align: center;
+            margin-bottom: 2rem;
+            font-size: 2.5rem;
+        }
+        .method {
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 15px;
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+            border-left: 4px solid #fff;
+        }
+        .method h3 {
+            color: #fff;
+            margin-bottom: 1rem;
+        }
+        .code {
+            background: rgba(0, 0, 0, 0.3);
+            padding: 1rem;
+            border-radius: 8px;
+            margin: 1rem 0;
+            font-family: 'Courier New', monospace;
+            overflow-x: auto;
+        }
+        .button {
+            display: inline-block;
+            background: #fff;
+            color: #711a5f;
+            padding: 1rem 2rem;
+            border-radius: 25px;
+            text-decoration: none;
+            font-weight: bold;
+            margin: 1rem 0.5rem;
+            transition: all 0.3s ease;
+        }
+        .button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 15px rgba(255, 255, 255, 0.3);
+        }
+        .warning {
+            background: rgba(255, 152, 0, 0.2);
+            border: 1px solid #ff9800;
+            padding: 1rem;
+            border-radius: 8px;
+            margin: 1rem 0;
+        }
+        .success {
+            background: rgba(76, 175, 80, 0.2);
+            border: 1px solid #4caf50;
+            padding: 1rem;
+            border-radius: 8px;
+            margin: 1rem 0;
+        }
+        .step {
+            display: flex;
+            align-items: center;
+            margin: 1rem 0;
+        }
+        .step-number {
+            background: #fff;
+            color: #711a5f;
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            margin-right: 1rem;
+            flex-shrink: 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🌐 南开大学数学建模协会网站预览指南</h1>
+        
+        <div class="success">
+            <strong>恭喜！</strong> 网站文件已经创建完成。现在您可以选择以下方式预览网站：
+        </div>
+
+        <div class="method">
+            <h3>📱 方法一：直接打开（简单但功能受限）</h3>
+            <div class="step">
+                <div class="step-number">1</div>
+                <div>双击 <code>index.html</code> 文件</div>
+            </div>
+            <div class="step">
+                <div class="step-number">2</div>
+                <div>在浏览器中查看网站</div>
+            </div>
+            
+            <div class="warning">
+                <strong>注意：</strong> 某些功能可能不完整，建议使用下面的方法。
+            </div>
+            
+            <a href="index.html" class="button">🚀 直接预览网站</a>
+        </div>
+
+        <div class="method">
+            <h3>🐍 方法二：Python本地服务器（推荐）</h3>
+            <div class="step">
+                <div class="step-number">1</div>
+                <div>在当前文件夹打开命令行/终端</div>
+            </div>
+            <div class="step">
+                <div class="step-number">2</div>
+                <div>输入以下命令之一：</div>
+            </div>
+            
+            <div class="code">
+                # Python 3 用户<br>
+                python -m http.server 8000<br><br>
+                # Python 2 用户<br>
+                python -m SimpleHTTPServer 8000
+            </div>
+            
+            <div class="step">
+                <div class="step-number">3</div>
+                <div>在浏览器中访问：<strong>http://localhost:8000</strong></div>
+            </div>
+        </div>
+
+        <div class="method">
+            <h3>💻 方法三：VS Code Live Server</h3>
+            <div class="step">
+                <div class="step-number">1</div>
+                <div>在VS Code中安装Live Server扩展</div>
+            </div>
+            <div class="step">
+                <div class="step-number">2</div>
+                <div>右键点击<code>index.html</code>文件</div>
+            </div>
+            <div class="step">
+                <div class="step-number">3</div>
+                <div>选择"Open with Live Server"</div>
+            </div>
+        </div>
+
+        <div class="method">
+            <h3>🔧 方法四：其他工具</h3>
+            <p>您也可以使用以下工具：</p>
+            <ul>
+                <li><strong>Node.js:</strong> npx serve 或 npx http-server</li>
+                <li><strong>PHP:</strong> php -S localhost:8000</li>
+                <li><strong>XAMPP/WAMP:</strong> 将文件放入htdocs文件夹</li>
+            </ul>
+        </div>
+
+        <div class="warning">
+            <h3>📸 关于图片资源</h3>
+            <p>网站需要一些图片才能完整显示。请查看 <strong>图片资源说明.md</strong> 了解详细信息。</p>
+            <p>在没有图片的情况下，网站布局仍然可以正常预览。</p>
+        </div>
+
+        <div class="success">
+            <h3>✅ 网站功能</h3>
+            <ul>
+                <li>✨ 响应式设计 - 支持手机、平板、电脑</li>
+                <li>🌓 白天/黑暗模式切换</li>
+                <li>🌍 中英文语言切换</li>
+                <li>🎠 首页轮播图（需要图片）</li>
+                <li>📝 联系表单</li>
+                <li>⚡ 流畅的动画效果</li>
+            </ul>
+        </div>
+
+        <div style="text-align: center; margin-top: 2rem;">
+            <a href="index.html" class="button">🏠 进入网站首页</a>
+            <a href="README.md" class="button">📚 查看完整说明</a>
+        </div>
+
+        <div style="text-align: center; margin-top: 2rem; opacity: 0.8;">
+            <p>© 2024 南开大学数学建模协会</p>
+        </div>
+    </div>
+
+    <script>
+        // 检测是否支持ES6
+        try {
+            eval('const test = () => {};');
+            console.log('✅ 浏览器支持现代JavaScript特性');
+        } catch (e) {
+            console.log('⚠️ 浏览器可能不支持某些现代特性，建议更新浏览器');
+        }
+    </script>
+</body>
+</html> 
